@@ -1,47 +1,70 @@
-# Docker Example with pipeline
+# Getting Started with Create React App
 
-This example is with react app and CI/CD with docker using git/TravisCI and deployment env
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## basic commands to run
-<code>npm run start </code> start a development server
+## Available Scripts
 
-<code> npm run test </code> execute tests in the projects
+In the project directory, you can run:
 
-<code> npm run build </code> builds a production ready application
+### `npm start`
 
-## How to run docker build from env specific dockerfile
-<code> docker build -f Dockerfile.dev . </code> 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-    in here we are specifying the file for docker build command to run with '-f' 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Docker volume
-Kind of a place holder in the container, so it will not copy the directories as it is. but will reference to the directories in the local machine
+### `npm test`
 
-<code> docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app < imageid > </code>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-explanation on the command
-<code> -v /app/node_modules </code> 
-    idea of this is to say to docker that dont map this file/folder with the outside directory ( as in this exaple we dont have node_module in the local directories)
+### `npm run build`
 
-<code> $(pwd):/app </code> 
-copy all in present working directory to 'app' directory
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Using docker compose for easily run these commands
-<code>
-    version: "3"
-    services:
-    web: 
-        build: 
-        context: .
-        dockerfile: Dockerfile.dev
-        ports:
-        - "3000:3000"
-        volumes:
-        - /app/node_modules
-        - .:/app
-</code>
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## multi step build process
-in this example its two steps 
-    1) build the application using alphine
-    2) run the application using Nginx ( only consider about the build directory)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
